@@ -326,6 +326,9 @@ spec:
                           prefix:
                             description: Prefix defines a prefix match for a request.
                             type: string
+                          regex:
+                            description: Regex defines a prefix match for a request.
+                            type: string
                         type: object
                       type: array
                     name:
@@ -386,6 +389,9 @@ spec:
                             type: object
                           prefix:
                             description: Prefix defines a prefix match for a request.
+                            type: string
+                          regex:
+                            description: Regex defines a prefix match for a request.
                             type: string
                         type: object
                       type: array

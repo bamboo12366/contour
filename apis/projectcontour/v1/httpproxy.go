@@ -61,6 +61,10 @@ type MatchCondition struct {
 	// +optional
 	Prefix string `json:"prefix,omitempty"`
 
+	// Regex defines a prefix match for a request.
+	// +optional
+	Regex string `json:"regex,omitempty"`
+
 	// Header specifies the header condition to match.
 	// +optional
 	Header *HeaderMatchCondition `json:"header,omitempty"`
