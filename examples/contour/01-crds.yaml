@@ -44,11 +44,10 @@ spec:
                     - roundrobin
                     - static-rr
                     - leastconn
-                    - firsat
+                    - first
                     - source
                     - uri
                     - url_param
-                    - hdr
                     - random
                     - rdp-cookie
                     type: string
@@ -442,11 +441,10 @@ spec:
                           - roundrobin
                           - static-rr
                           - leastconn
-                          - firsat
+                          - first
                           - source
                           - uri
                           - url_param
-                          - hdr
                           - random
                           - rdp-cookie
                           type: string
@@ -742,11 +740,10 @@ spec:
                         - roundrobin
                         - static-rr
                         - leastconn
-                        - firsat
+                        - first
                         - source
                         - uri
                         - url_param
-                        - hdr
                         - random
                         - rdp-cookie
                         type: string

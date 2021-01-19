@@ -545,7 +545,7 @@ type LoadBalancerPolicy struct {
 	// and `Cookie`. If an unknown strategy name is specified
 	// or no policy is supplied, the default `RoundRobin` policy
 	// is used.
-	// +kubebuilder:validation:Enum=roundrobin;static-rr;leastconn;firsat;source;uri;url_param;hdr;random;rdp-cookie
+	// +kubebuilder:validation:Enum=roundrobin;static-rr;leastconn;first;source;uri;url_param;random;rdp-cookie
 	Strategy string `json:"strategy,omitempty"`
 }
 
