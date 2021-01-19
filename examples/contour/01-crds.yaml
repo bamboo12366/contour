@@ -40,6 +40,17 @@ spec:
                 properties:
                   strategy:
                     description: Strategy specifies the policy used to balance requests across the pool of backend pods. Valid policy names are `Random`, `RoundRobin`, `WeightedLeastRequest`, `Random` and `Cookie`. If an unknown strategy name is specified or no policy is supplied, the default `RoundRobin` policy is used.
+                    enum:
+                    - roundrobin
+                    - static-rr
+                    - leastconn
+                    - firsat
+                    - source
+                    - uri
+                    - url_param
+                    - hdr
+                    - random
+                    - rdp-cookie
                     type: string
                 type: object
               protocol:
@@ -427,6 +438,17 @@ spec:
                       properties:
                         strategy:
                           description: Strategy specifies the policy used to balance requests across the pool of backend pods. Valid policy names are `Random`, `RoundRobin`, `WeightedLeastRequest`, `Random` and `Cookie`. If an unknown strategy name is specified or no policy is supplied, the default `RoundRobin` policy is used.
+                          enum:
+                          - roundrobin
+                          - static-rr
+                          - leastconn
+                          - firsat
+                          - source
+                          - uri
+                          - url_param
+                          - hdr
+                          - random
+                          - rdp-cookie
                           type: string
                       type: object
                     pathRewritePolicy:
@@ -716,6 +738,17 @@ spec:
                     properties:
                       strategy:
                         description: Strategy specifies the policy used to balance requests across the pool of backend pods. Valid policy names are `Random`, `RoundRobin`, `WeightedLeastRequest`, `Random` and `Cookie`. If an unknown strategy name is specified or no policy is supplied, the default `RoundRobin` policy is used.
+                        enum:
+                        - roundrobin
+                        - static-rr
+                        - leastconn
+                        - firsat
+                        - source
+                        - uri
+                        - url_param
+                        - hdr
+                        - random
+                        - rdp-cookie
                         type: string
                     type: object
                   services:
