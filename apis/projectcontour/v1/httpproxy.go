@@ -457,15 +457,15 @@ type TimeoutPolicy struct {
 	// +kubebuilder:validation:Pattern=`^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|(\d*(\.\d*)?ns))+|infinity|infinite)$`
 	Idle string `json:"idle,omitempty"`
 
-	// Timeout for Server Response.
+	// Timeout for Server Response, unit second.
 	// +optional
-	// +kubebuilder:validation:Pattern=`^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|(\d*(\.\d*)?ns))+|infinity|infinite)$`
-	Server string `json:"server,omitempty"`
+	// +kubebuilder:validation:Minimum=0
+	Server int64 `json:"server,omitempty"`
 
-	// Timeout for Client Response
+	// Timeout for Client Response, unit second.
 	// +optional
-	// +kubebuilder:validation:Pattern=`^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|(\d*(\.\d*)?ns))+|infinity|infinite)$`
-	Client string `json:"client,omitempty"`
+	// +kubebuilder:validation:Minimum=0
+	Client int64 `json:"client,omitempty"`
 }
 
 // RetryOn is a string type alias with validation to ensure that the value is valid.
