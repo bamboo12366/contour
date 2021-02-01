@@ -368,7 +368,7 @@ type Service struct {
 	Port int `json:"port"`
 	// Protocol may be used to specify (or override) the protocol used to reach this Service.
 	// Values may be tls, h2, h2c. If omitted, protocol-selection falls back on Service annotations.
-	// +kubebuilder:validation:Enum=h2;h2c;tls
+	// +kubebuilder:validation:Enum=h2;h2c;tls;h2/1.1
 	// +optional
 	Protocol *string `json:"protocol,omitempty"`
 	// Weight defines percentage of traffic to balance traffic
@@ -452,6 +452,15 @@ type TimeoutPolicy struct {
 	// +optional
 	// +kubebuilder:validation:Pattern=`^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|(\d*(\.\d*)?ns))+|infinity|infinite)$`
 	Idle string `json:"idle,omitempty"`
+	// Timeout for Server Response.
+	// +optional
+	// +kubebuilder:validation:Pattern=`^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|(\d*(\.\d*)?ns))+|infinity|infinite)$`
+	Server string `json:"response,omitempty"`
+
+	// Timeout for Client Response
+	// +optional
+	// +kubebuilder:validation:Pattern=`^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|(\d*(\.\d*)?ns))+|infinity|infinite)$`
+	Client string `json:"idle,omitempty"`
 }
 
 // RetryOn is a string type alias with validation to ensure that the value is valid.
@@ -545,7 +554,7 @@ type LoadBalancerPolicy struct {
 	// and `Cookie`. If an unknown strategy name is specified
 	// or no policy is supplied, the default `RoundRobin` policy
 	// is used.
-	// +kubebuilder:validation:Enum=roundrobin;static-rr;leastconn;first;source;uri;url_param;random;rdp-cookie
+	// +kubebuilder:validation:Enum=roundrobin;static-rr;leastconn;first;source;uri;random;rdp-cookie
 	Strategy string `json:"strategy,omitempty"`
 }
 

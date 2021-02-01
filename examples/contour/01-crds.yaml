@@ -47,7 +47,6 @@ spec:
                     - first
                     - source
                     - uri
-                    - url_param
                     - random
                     - rdp-cookie
                     type: string
@@ -91,11 +90,11 @@ spec:
                 description: The timeout policy for requests to the services.
                 properties:
                   idle:
-                    description: Timeout after which, if there are no active requests for this route, the connection between Envoy and the backend or Envoy and the external client will be closed. If not specified, there is no per-route idle timeout, though a connection manager-wide stream_idle_timeout default of 5m still applies.
+                    description: Timeout for Client Response
                     pattern: ^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|(\d*(\.\d*)?ns))+|infinity|infinite)$
                     type: string
                   response:
-                    description: Timeout for receiving a response from the server after processing a request from client. If not supplied, Envoy's default value of 15s applies.
+                    description: Timeout for Server Response.
                     pattern: ^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|(\d*(\.\d*)?ns))+|infinity|infinite)$
                     type: string
                 type: object
@@ -444,7 +443,6 @@ spec:
                           - first
                           - source
                           - uri
-                          - url_param
                           - random
                           - rdp-cookie
                           type: string
@@ -589,6 +587,7 @@ spec:
                             - h2
                             - h2c
                             - tls
+                            - h2/1.1
                             type: string
                           requestHeadersPolicy:
                             description: The policy for managing request headers during proxying. Rewriting the 'Host' header is not supported.
@@ -672,11 +671,11 @@ spec:
                       description: The timeout policy for this route.
                       properties:
                         idle:
-                          description: Timeout after which, if there are no active requests for this route, the connection between Envoy and the backend or Envoy and the external client will be closed. If not specified, there is no per-route idle timeout, though a connection manager-wide stream_idle_timeout default of 5m still applies.
+                          description: Timeout for Client Response
                           pattern: ^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|(\d*(\.\d*)?ns))+|infinity|infinite)$
                           type: string
                         response:
-                          description: Timeout for receiving a response from the server after processing a request from client. If not supplied, Envoy's default value of 15s applies.
+                          description: Timeout for Server Response.
                           pattern: ^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|(\d*(\.\d*)?ns))+|infinity|infinite)$
                           type: string
                       type: object
@@ -743,7 +742,6 @@ spec:
                         - first
                         - source
                         - uri
-                        - url_param
                         - random
                         - rdp-cookie
                         type: string
@@ -771,6 +769,7 @@ spec:
                           - h2
                           - h2c
                           - tls
+                          - h2/1.1
                           type: string
                         requestHeadersPolicy:
                           description: The policy for managing request headers during proxying. Rewriting the 'Host' header is not supported.
