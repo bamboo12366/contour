@@ -601,7 +601,6 @@ spec:
                             description: Protocol may be used to specify (or override) the protocol used to reach this Service. Values may be tls, h2, h2c. If omitted, protocol-selection falls back on Service annotations.
                             enum:
                             - h2
-                            - h2c
                             - tls
                             - h2/1.1
                             type: string
@@ -793,7 +792,6 @@ spec:
                           description: Protocol may be used to specify (or override) the protocol used to reach this Service. Values may be tls, h2, h2c. If omitted, protocol-selection falls back on Service annotations.
                           enum:
                           - h2
-                          - h2c
                           - tls
                           - h2/1.1
                           type: string

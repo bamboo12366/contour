@@ -372,7 +372,7 @@ type Service struct {
 	Port int `json:"port"`
 	// Protocol may be used to specify (or override) the protocol used to reach this Service.
 	// Values may be tls, h2, h2c. If omitted, protocol-selection falls back on Service annotations.
-	// +kubebuilder:validation:Enum=h2;h2c;tls;h2/1.1
+	// +kubebuilder:validation:Enum=h2;tls;h2/1.1
 	// +optional
 	Protocol *string `json:"protocol,omitempty"`
 	// Weight defines percentage of traffic to balance traffic
