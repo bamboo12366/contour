@@ -92,6 +92,7 @@ spec:
                   client:
                     description: Timeout for Client Response, unit second.
                     format: int64
+                    maximum: 2147483
                     minimum: 0
                     type: integer
                   idle:
@@ -105,6 +106,7 @@ spec:
                   server:
                     description: Timeout for Server Response, unit second.
                     format: int64
+                    maximum: 2147483
                     minimum: 0
                     type: integer
                 type: object
@@ -688,6 +690,7 @@ spec:
                         client:
                           description: Timeout for Client Response, unit second.
                           format: int64
+                          maximum: 2147483
                           minimum: 0
                           type: integer
                         idle:
@@ -701,6 +704,7 @@ spec:
                         server:
                           description: Timeout for Server Response, unit second.
                           format: int64
+                          maximum: 2147483
                           minimum: 0
                           type: integer
                       type: object

@@ -460,11 +460,13 @@ type TimeoutPolicy struct {
 	// Timeout for Server Response, unit second.
 	// +optional
 	// +kubebuilder:validation:Minimum=0
+	// +kubebuilder:validation:Maximum=2147483
 	Server int64 `json:"server,omitempty"`
 
 	// Timeout for Client Response, unit second.
 	// +optional
 	// +kubebuilder:validation:Minimum=0
+	// +kubebuilder:validation:Maximum=2147483
 	Client int64 `json:"client,omitempty"`
 }
 
