@@ -550,7 +550,7 @@ type ReplacePrefix struct {
 	Replacement string `json:"replacement"`
 
 	// +optional
-	Condition MatchCondition `json:"condition"`
+	Condition []MatchCondition `json:"condition"`
 }
 
 // PathRewritePolicy specifies how a request URL path should be

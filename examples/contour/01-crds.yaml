@@ -486,45 +486,47 @@ spec:
                             description: ReplacePrefix describes a path prefix replacement.
                             properties:
                               condition:
-                                description: MatchCondition are a general holder for matching rules for HTTPProxies. One of Prefix or Header must be provided.
-                                properties:
-                                  domain:
-                                    description: Domain specifies the domain to match.
-                                    type: string
-                                  end:
-                                    description: End defines a prefix match for a request.
-                                    type: string
-                                  header:
-                                    description: Header specifies the header condition to match.
-                                    properties:
-                                      contains:
-                                        description: Contains specifies a substring that must be present in the header value.
-                                        type: string
-                                      exact:
-                                        description: Exact specifies a string that the header value must be equal to.
-                                        type: string
-                                      name:
-                                        description: Name is the name of the header to match against. Name is required. Header names are case insensitive.
-                                        type: string
-                                      notcontains:
-                                        description: NotContains specifies a substring that must not be present in the header value.
-                                        type: string
-                                      notexact:
-                                        description: NoExact specifies a string that the header value must not be equal to. The condition is true if the header has any other value.
-                                        type: string
-                                      present:
-                                        description: Present specifies that condition is true when the named header is present, regardless of its value. Note that setting Present to false does not make the condition true if the named header is absent.
-                                        type: boolean
-                                    required:
-                                    - name
-                                    type: object
-                                  prefix:
-                                    description: Prefix defines a prefix match for a request.
-                                    type: string
-                                  regex:
-                                    description: Regex defines a prefix match for a request.
-                                    type: string
-                                type: object
+                                items:
+                                  description: MatchCondition are a general holder for matching rules for HTTPProxies. One of Prefix or Header must be provided.
+                                  properties:
+                                    domain:
+                                      description: Domain specifies the domain to match.
+                                      type: string
+                                    end:
+                                      description: End defines a prefix match for a request.
+                                      type: string
+                                    header:
+                                      description: Header specifies the header condition to match.
+                                      properties:
+                                        contains:
+                                          description: Contains specifies a substring that must be present in the header value.
+                                          type: string
+                                        exact:
+                                          description: Exact specifies a string that the header value must be equal to.
+                                          type: string
+                                        name:
+                                          description: Name is the name of the header to match against. Name is required. Header names are case insensitive.
+                                          type: string
+                                        notcontains:
+                                          description: NotContains specifies a substring that must not be present in the header value.
+                                          type: string
+                                        notexact:
+                                          description: NoExact specifies a string that the header value must not be equal to. The condition is true if the header has any other value.
+                                          type: string
+                                        present:
+                                          description: Present specifies that condition is true when the named header is present, regardless of its value. Note that setting Present to false does not make the condition true if the named header is absent.
+                                          type: boolean
+                                      required:
+                                      - name
+                                      type: object
+                                    prefix:
+                                      description: Prefix defines a prefix match for a request.
+                                      type: string
+                                    regex:
+                                      description: Regex defines a prefix match for a request.
+                                      type: string
+                                  type: object
+                                type: array
                               prefix:
                                 description: "Prefix specifies the URL path prefix to be replaced. \n If Prefix is specified, it must exactly match the MatchCondition prefix that is rendered by the chain of including HTTPProxies and only that path prefix will be replaced by Replacement. This allows HTTPProxies that are included through multiple roots to only replace specific path prefixes, leaving others unmodified. \n If Prefix is not specified, all routing prefixes rendered by the include chain will be replaced."
                                 minLength: 1
