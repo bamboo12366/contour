@@ -72,6 +72,10 @@ type MatchCondition struct {
 	// Header specifies the header condition to match.
 	// +optional
 	Header *HeaderMatchCondition `json:"header,omitempty"`
+
+	// Domain specifies the domain to match.
+	// +optional
+	Domain string `json:"domain,omitempty"`
 }
 
 // HeaderMatchCondition specifies how to conditionally match against HTTP
