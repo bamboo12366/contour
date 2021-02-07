@@ -65,6 +65,10 @@ type MatchCondition struct {
 	// +optional
 	Regex string `json:"regex,omitempty"`
 
+	// Regex defines a prefix match for a request.
+	// +optional
+	End string `json:"end,omitempty"`
+
 	// Header specifies the header condition to match.
 	// +optional
 	Header *HeaderMatchCondition `json:"header,omitempty"`
@@ -539,6 +543,9 @@ type ReplacePrefix struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	Replacement string `json:"replacement"`
+
+	// +optional
+	Condition MatchCondition `json:"condition"`
 }
 
 // PathRewritePolicy specifies how a request URL path should be
