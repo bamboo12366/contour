@@ -324,7 +324,7 @@ spec:
                             description: Domain specifies the domain to match.
                             type: string
                           end:
-                            description: Regex defines a prefix match for a request.
+                            description: End defines a prefix match for a request.
                             type: string
                           header:
                             description: Header specifies the header condition to match.
@@ -394,7 +394,7 @@ spec:
                             description: Domain specifies the domain to match.
                             type: string
                           end:
-                            description: Regex defines a prefix match for a request.
+                            description: End defines a prefix match for a request.
                             type: string
                           header:
                             description: Header specifies the header condition to match.
@@ -492,7 +492,7 @@ spec:
                                     description: Domain specifies the domain to match.
                                     type: string
                                   end:
-                                    description: Regex defines a prefix match for a request.
+                                    description: End defines a prefix match for a request.
                                     type: string
                                   header:
                                     description: Header specifies the header condition to match.

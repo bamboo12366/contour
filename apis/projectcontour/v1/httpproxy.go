@@ -65,17 +65,18 @@ type MatchCondition struct {
 	// +optional
 	Regex string `json:"regex,omitempty"`
 
-	// Regex defines a prefix match for a request.
+	// End defines a prefix match for a request.
 	// +optional
 	End string `json:"end,omitempty"`
+
+	// Domain specifies the domain to match.
+	// +optional
+	Domain string `json:"domain,omitempty"`
 
 	// Header specifies the header condition to match.
 	// +optional
 	Header *HeaderMatchCondition `json:"header,omitempty"`
 
-	// Domain specifies the domain to match.
-	// +optional
-	Domain string `json:"domain,omitempty"`
 }
 
 // HeaderMatchCondition specifies how to conditionally match against HTTP
