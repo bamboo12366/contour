@@ -566,6 +566,10 @@ type ReplacePrefix struct {
 	// +kubebuilder:validation:MinLength=1
 	Replacement string `json:"replacement"`
 
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:Enum=acl;regsub;raw
+	Type string `json:"type"`
+
 	// +optional
 	Condition []MatchCondition `json:"condition"`
 }

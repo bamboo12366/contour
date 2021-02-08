@@ -602,8 +602,15 @@ spec:
                                 description: Replacement is the string that the routing path prefix will be replaced with. This must not be empty.
                                 minLength: 1
                                 type: string
+                              type:
+                                enum:
+                                - acl
+                                - regsub
+                                - raw
+                                type: string
                             required:
                             - replacement
+                            - type
                             type: object
                           type: array
                       type: object
