@@ -566,6 +566,7 @@ type ReplacePrefix struct {
 	// +kubebuilder:validation:MinLength=1
 	Replacement string `json:"replacement"`
 
+	// type for haproxy set-path
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:Enum=acl;regsub;raw
 	Type string `json:"type"`
