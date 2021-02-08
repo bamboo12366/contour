@@ -34,6 +34,24 @@ type HTTPProxySpec struct {
 	// possibly in another namespace.
 	// +optional
 	Includes []Include `json:"includes,omitempty"`
+	// Redirects allow for redirect policy for HTTPProxy.
+	// +optional
+	Redirects []Redirect `json:"redirects,omitempty"`
+}
+
+type Redirect struct {
+	// Http code for redirect
+
+	// +required
+	// +kubebuilder:validation:Enum=300;301;302;303;304;305;306;307;308
+	Code int `json:"code"`
+
+	// Redirect value for Haproxy
+	Value string `json:"value"`
+
+	// Condition use for redirect rule
+	// +optional
+	Conditions []MatchCondition `json:"conditions,omitempty"`
 }
 
 // Include describes a set of policies that can be applied to an HTTPProxy in a namespace.
@@ -76,7 +94,6 @@ type MatchCondition struct {
 	// Header specifies the header condition to match.
 	// +optional
 	Header *HeaderMatchCondition `json:"header,omitempty"`
-
 }
 
 // HeaderMatchCondition specifies how to conditionally match against HTTP
